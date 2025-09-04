@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "916817013006",
+    "project_id": "device-tracking-f8705",
+    "storage_bucket": "device-tracking-f8705.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916817013006:android:b0f1eff6c46fdeea9d8f5f",
+        "android_client_info": {
+          "package_name": "com.example.device_tracking_flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916817013006-an6ng4ust1au207nae6ad0e6mr3uv97l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.device_tracking_flutter_app",
+            "certificate_hash": "58bafd533b7c9b2fda20b086e74c6ee85aaddc6e"
+          }
+        },
+        {
+          "client_id": "916817013006-evnjknvethe3k3i36erbtpfud95gm7r9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXdX9Qnx0YaK7XdjTjjC0a3865y008EvI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916817013006-evnjknvethe3k3i36erbtpfud95gm7r9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "916817013006-44475dscri2nhc1vf7r1elkmhe091sq5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.deviceTrackingFlutterApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
