@@ -22,6 +22,9 @@ jobs:
       - name: Build Android release APK
         run: flutter build apk --release
 
+      - name: Install Firebase CLI
+        run: curl -sL https://firebase.tools | bash
+
       - name: Upload to Firebase App Distribution
         run: |
           firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
