@@ -1,0 +1,32 @@
+name: Android Release Build & Upload
+
+on:
+  push:
+    branches:
+      - main # only runs when pushing to qa-builds branch
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.35.2"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build Android release APK
+        run: flutter build apk --release
+
+      - name: Upload to Firebase App Distribution
+        run: |
+          firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
+            --app ${{ secrets.FIREBASE_ANDROID_APP_ID }} \
+            --groups testers \
+            --release-notes "Automated build from QA branch"
+        env:
+          FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
