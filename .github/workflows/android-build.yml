@@ -46,10 +46,7 @@ jobs:
       - name: Upload to Firebase App Distribution
         run: |
           firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
-            --app ${{ secrets.FIREBASE_ANDROID_APP_ID }} \
-            --groups testers \
-            --release-notes "Automated build from QA branch" \
+            --app "1:916817013006:android:b0f1eff6c46fdeea9d8f5f" \
+            --groups "testers" \
+            --release-notes "Automated build from main branch - $(date '+%Y-%m-%d %H:%M:%S')" \
             --token ${{ secrets.FIREBASE_CLI_TOKEN }}
-
-        env:
-          FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
