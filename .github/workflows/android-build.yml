@@ -42,11 +42,19 @@ jobs:
       - name: Check Firebase CLI version
         run: firebase --version
 
+      # Setup Firebase Service Account
+      - name: Setup Firebase Service Account
+        run: |
+          echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}' > firebase-service-account.json
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: firebase-service-account.json
+
       # Upload APK to Firebase App Distribution
       - name: Upload to Firebase App Distribution
         run: |
           firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
             --app "1:916817013006:android:b0f1eff6c46fdeea9d8f5f" \
             --groups "testers" \
-            --release-notes "Automated build from main branch - $(date '+%Y-%m-%d %H:%M:%S')" \
-            --token ${{ secrets.FIREBASE_CLI_TOKEN }}
+            --release-notes "Automated build from main branch - $(date '+%Y-%m-%d %H:%M:%S')"
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: firebase-service-account.json
